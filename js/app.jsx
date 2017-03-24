@@ -17,36 +17,36 @@ class ListaGosci extends React.Component{
     return <div>
       <header>
         <img src="./logo.png" />
-        <ul><li><a href="mailto: mrakowskaa@gmail.com ">kontakt</a></li></ul>
+        <ul><li><a href="mailto: mrakowskaa@gmail.com ">contact</a></li></ul>
       </header>
-      <div className ='guests'>  <div className='inside'><h1>Lista gości</h1></div></div><div className='main'>
-            <h2><span id='create'>Stwórz swoją listę gości!</span></h2>
-            <h3>Oblicz koszt imprezy!</h3>
+      <div className ='guests'>  <div className='inside'><h1>Guest list</h1></div></div><div className='main'>
+            <h2><span id='create'>Create your own guest list!</span></h2>
+            <h3>Calculate the cost of the party!</h3>
             <p>
-              <br />Aby dodać kolejną osobę, wpisz <span>imię i nazwisko</span> i kliknij przycisk <span>"Dodaj"</span>.<br></br><br></br>Aby usunąć osobę z listy, kliknij na przycisk <span>"Usuń"</span> w liście.
+              <br />Enter the <span>first and last name</span> and click <span>"Add"</span>.<br></br><br></br>To remove a person click <span>"Delete"</span>.
             </p>
 
             <ul>
               {this.state.tablica.map((el)=>{
-                return <li key={el}>{el}  <button onClick={this.handleClick2}>Usuń</button>
+                return <li key={el}>{el}  <button onClick={this.handleClick2}>Delete</button>
                 </li>
               })}
           </ul>
-          <p style={{textAlign: 'left'}}><br></br>Imię i nazwisko: </p><input id='add' type='text' onChange={this.handleChange2} value={this.state.value2}></input>
-          <button onClick={this.handleClick}>Dodaj</button><br></br>
-          <p style={{textAlign: 'left'}}>Koszt w zł za osobę: </p><input id='pln' type='text' onChange={this.handleChange} value={this.state.value}></input>
-          <p style={{textAlign: 'left'}}>Liczba osób: {this.state.tablica.length}<br></br>Koszt imprezy: {this.state.tablica.length * Number(this.state.value)} zł</p>
+          <p style={{textAlign: 'left'}}><br></br>First name and last name: </p><input id='add' type='text' onChange={this.handleChange2} value={this.state.value2}></input>
+          <button onClick={this.handleClick}>Add</button><br></br>
+          <p style={{textAlign: 'left'}}>Cost per person ($): </p><input id='pln' type='text' onChange={this.handleChange} value={this.state.value}></input>
+          <p style={{textAlign: 'left'}}>How many people: {this.state.tablica.length}<br></br>Total cost of the party: {this.state.tablica.length * Number(this.state.value)} $</p>
           </div>
           <div className='img'></div>
           <footer>&copy; Małgorzata Rakowska <a href="mailto: mrakowskaa@gmail.com "> mrakowskaa@gmail.com </a></footer>
           </div>
   }
   handleClick=()=>{
-    let czyjestjuz = this.state.value2;
-    let imieinazw = czyjestjuz;
+    let isIn = this.state.value2;
+    let nameLast = isIn;
     let tablicaCopy=this.state.tablica;
-    if (tablicaCopy.indexOf(czyjestjuz) === -1){
-      tablicaCopy.unshift(imieinazw)
+    if (tablicaCopy.indexOf(isIn) === -1){
+      tablicaCopy.unshift(nameLast)
     };
     this.setState({tablica: tablicaCopy, value2: ''});
   }

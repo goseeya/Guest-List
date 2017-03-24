@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'myfont';
+  src: url('../fonts/amarante-regular-webfont.woff') format('woff');
+}
+
 * {
-  font-family: 'Amarante', sans-serif;
+  font-family: 'myfont';
 }
 header {
   width: 100%;
